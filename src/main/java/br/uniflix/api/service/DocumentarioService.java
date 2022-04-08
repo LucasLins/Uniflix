@@ -17,4 +17,6 @@ public class DocumentarioService {
     public Documentario salvarTrailer(Documentario trailer) {return repository.save(trailer);}
 
     public Documentario salvarProdutora(Documentario produtora) { return repository.save(produtora);}
+
+    public void deletar(Integer id) { repository.deleteById(id);}
 }

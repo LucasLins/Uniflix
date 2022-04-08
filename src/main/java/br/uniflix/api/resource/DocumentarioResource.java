@@ -59,4 +59,7 @@ public class DocumentarioResource {
         return produtora;
     }
 
+    @DeleteMapping("{id}")
+    public void remover(@PathVariable int id){service.deletar(id);}
+
 }
