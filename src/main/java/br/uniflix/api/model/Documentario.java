@@ -6,31 +6,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Filme {
+public class Documentario {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    private String sinopse;
+    private String titulo;
 
     private String trailer;
 
-    private String titulo;
+    private String produtora;
 
     public Integer getId() {return id;}
 
     public void setId(Integer id) {this.id = id;}
 
-    public String getSinopse() {return sinopse;}
+    public String getTitulo() {return titulo;}
 
-    public void setSinopse(String sinopse) {this.sinopse = sinopse;}
+    public void setTitulo(String titulo) {this.titulo = titulo;}
 
     public String getTrailer() {return trailer;}
 
     public void setTrailer(String trailer) {this.trailer = trailer;}
 
-    public String getTitulo() {return titulo;}
+    public String getProdutora() {return produtora;}
 
-    public void setTitulo(String titulo){this.titulo = titulo;}
+    public void setProdutora(String produtora) {this.produtora = produtora;}
 }
