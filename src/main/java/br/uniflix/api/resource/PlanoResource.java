@@ -1,19 +1,43 @@
 package br.uniflix.api.resource;
 
+import br.uniflix.api.model.Plano;
 import br.uniflix.api.service.PlanoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/plano")
 public class PlanoResource {
 
     @Autowired
     private PlanoService service;
 
 
+    @PostMapping
+    public Plano salvar(@RequestBody Plano plano){
+        return service.salvar(plano);
+    }
+
+    @GetMapping
+    public List<Plano> listar(){
+        return service.listar();
+    }
+
+    @GetMapping("{id}")
+    public Plano buscar(@PathVariable Integer id){
+        return service.buscar(id);
+    }
+
     @DeleteMapping("{id}")
-    public void remover(@PathVariable int id){service.deletar(id);}
+    public void remover(@PathVariable Integer id){
+        service.deletar(id);
+    }
+
+    @PutMapping
+    public Plano atualizar(@RequestBody Plano plano) throws Exception {
+        return service.atualizar(plano);
+    }
 
 }

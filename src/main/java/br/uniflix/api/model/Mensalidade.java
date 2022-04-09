@@ -3,6 +3,8 @@ package br.uniflix.api.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import java.util.Date;
 
 @Entity
 public class Mensalidade {
@@ -12,13 +14,15 @@ public class Mensalidade {
     @GeneratedValue
     private Integer id;
 
-    private Integer data_pagamento;
+    private Date dataPagamento;
 
     private Boolean pago;
 
-    private Integer FK_id_usuario;
+    @OneToOne
+    private Usuario usuario;
 
-    private Integer FK_plano;
+    @OneToOne
+    private Plano plano;
 
     public Integer getId() {
         return id;
@@ -28,12 +32,12 @@ public class Mensalidade {
         this.id = id;
     }
 
-    public Integer getData_pagamento() {
-        return data_pagamento;
+    public Date getDataPagamento() {
+        return dataPagamento;
     }
 
-    public void setData_pagamento(Integer data_pagamento) {
-        this.data_pagamento = data_pagamento;
+    public void setDataPagamento(Date dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
     public Boolean getPago() {
@@ -44,20 +48,19 @@ public class Mensalidade {
         this.pago = pago;
     }
 
-    public Integer getFK_id_usuario() {
-        return FK_id_usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setFK_id_usuario(Integer FK_id_usuario) {
-        this.FK_id_usuario = FK_id_usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public Integer getFK_plano() {
-        return FK_plano;
+    public Plano getPlano() {
+        return plano;
     }
 
-    public void setFK_plano(Integer FK_plano) {
-        this.FK_plano = FK_plano;
+    public void setPlano(Plano plano) {
+        this.plano = plano;
     }
-
 }

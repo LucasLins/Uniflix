@@ -1,9 +1,8 @@
 package br.uniflix.api.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Filme {
@@ -12,25 +11,84 @@ public class Filme {
     @GeneratedValue
     private Integer id;
 
-    private String sinopse;
-
-    private String trailer;
-
     private String titulo;
 
-    public Integer getId() {return id;}
+    private String sinopse;
 
-    public void setId(Integer id) {this.id = id;}
+    private String urlTrailer;
 
-    public String getSinopse() {return sinopse;}
+    private String urlCapa;
 
-    public void setSinopse(String sinopse) {this.sinopse = sinopse;}
+    @ManyToMany
+    private List<Ator> elenco;
 
-    public String getTrailer() {return trailer;}
+    @ManyToOne
+    private Genero genero;
 
-    public void setTrailer(String trailer) {this.trailer = trailer;}
+    @OneToOne
+    private Video video;
 
-    public String getTitulo() {return titulo;}
+    public Integer getId() {
+        return id;
+    }
 
-    public void setTitulo(String titulo){this.titulo = titulo;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public String getUrlTrailer() {
+        return urlTrailer;
+    }
+
+    public void setUrlTrailer(String urlTrailer) {
+        this.urlTrailer = urlTrailer;
+    }
+
+    public String getUrlCapa() {
+        return urlCapa;
+    }
+
+    public void setUrlCapa(String urlCapa) {
+        this.urlCapa = urlCapa;
+    }
+
+    public List<Ator> getElenco() {
+        return elenco;
+    }
+
+    public void setElenco(List<Ator> elenco) {
+        this.elenco = elenco;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public Video getVideo() {
+        return video;
+    }
+
+    public void setVideo(Video video) {
+        this.video = video;
+    }
 }

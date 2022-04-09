@@ -3,6 +3,8 @@ package br.uniflix.api.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import java.util.Date;
 
 @Entity
 public class Usuario {
@@ -13,7 +15,7 @@ public class Usuario {
 
     private String nome;
 
-    private Integer idade;
+    private Date dataNascimento;
 
     private String email;
 
@@ -22,6 +24,9 @@ public class Usuario {
     private String cpf;
 
     private String endereco;
+
+    @OneToOne
+    private Cartao cartao;
 
     public Integer getId() {
         return id;
@@ -39,12 +44,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getEmail() {
@@ -79,7 +84,11 @@ public class Usuario {
         this.endereco = endereco;
     }
 
+    public Cartao getCartao() {
+        return cartao;
+    }
 
-
-
+    public void setCartao(Cartao cartao) {
+        this.cartao = cartao;
+    }
 }

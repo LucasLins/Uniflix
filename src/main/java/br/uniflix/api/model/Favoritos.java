@@ -1,9 +1,7 @@
 package br.uniflix.api.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +12,45 @@ public class Favoritos {
     @Id
     @GeneratedValue
     private Integer id;
-    private List<Integer> listaFavoritosId = new ArrayList<>();
 
-    public Integer getId() {return id;}
+    @OneToMany
+    private List<Filme> filmes;
 
-    public void setId(Integer id) {this.id = id;}
+    @OneToMany
+    private List<Documentario> documentarios;
 
-    public List<Integer> getListaFavoritosId() {return listaFavoritosId;}
+    @OneToMany
+    private List<Serie> series;
 
-    public void setListaFavoritosId(List<Integer> listaFavoritosId) {this.listaFavoritosId = listaFavoritosId;}
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public List<Filme> getFilmes() {
+        return filmes;
+    }
+
+    public void setFilmes(List<Filme> filmes) {
+        this.filmes = filmes;
+    }
+
+    public List<Documentario> getDocumentarios() {
+        return documentarios;
+    }
+
+    public void setDocumentarios(List<Documentario> documentarios) {
+        this.documentarios = documentarios;
+    }
+
+    public List<Serie> getSeries() {
+        return series;
+    }
+
+    public void setSeries(List<Serie> series) {
+        this.series = series;
+    }
 }

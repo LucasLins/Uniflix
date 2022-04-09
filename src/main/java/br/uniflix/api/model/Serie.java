@@ -16,6 +16,9 @@ public class Serie {
     private String urlTrailer;
     private String urlCapa;
 
+    @ManyToMany
+    private List<Ator> elenco;
+
     @OneToMany
     private List<Episodio> episodios;
 
@@ -68,6 +71,14 @@ public class Serie {
 
     public void setUrlCapa(String urlCapa) {
         this.urlCapa = urlCapa;
+    }
+
+    public List<Ator> getElenco() {
+        return elenco;
+    }
+
+    public void setElenco(List<Ator> elenco) {
+        this.elenco = elenco;
     }
 
     public List<Episodio> getEpisodios() {

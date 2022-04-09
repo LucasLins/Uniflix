@@ -1,9 +1,8 @@
 package br.uniflix.api.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Documentario {
@@ -14,23 +13,82 @@ public class Documentario {
 
     private String titulo;
 
-    private String trailer;
+    private String urlTrailer;
+
+    private String urlCapa;
+
+    @ManyToMany
+    private List<Ator> elenco;
+
+    @ManyToOne
+    private Genero genero;
+
+    @OneToOne
+    private Video video;
 
     private String produtora;
 
-    public Integer getId() {return id;}
+    public Integer getId() {
+        return id;
+    }
 
-    public void setId(Integer id) {this.id = id;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public String getTitulo() {return titulo;}
+    public String getTitulo() {
+        return titulo;
+    }
 
-    public void setTitulo(String titulo) {this.titulo = titulo;}
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-    public String getTrailer() {return trailer;}
+    public String getUrlTrailer() {
+        return urlTrailer;
+    }
 
-    public void setTrailer(String trailer) {this.trailer = trailer;}
+    public void setUrlTrailer(String urlTrailer) {
+        this.urlTrailer = urlTrailer;
+    }
 
-    public String getProdutora() {return produtora;}
+    public String getUrlCapa() {
+        return urlCapa;
+    }
 
-    public void setProdutora(String produtora) {this.produtora = produtora;}
+    public void setUrlCapa(String urlCapa) {
+        this.urlCapa = urlCapa;
+    }
+
+    public List<Ator> getElenco() {
+        return elenco;
+    }
+
+    public void setElenco(List<Ator> elenco) {
+        this.elenco = elenco;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
+
+    public Video getVideo() {
+        return video;
+    }
+
+    public void setVideo(Video video) {
+        this.video = video;
+    }
+
+    public String getProdutora() {
+        return produtora;
+    }
+
+    public void setProdutora(String produtora) {
+        this.produtora = produtora;
+    }
 }

@@ -3,6 +3,7 @@ package br.uniflix.api.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Ator {
@@ -13,7 +14,7 @@ public class Ator {
 
     private String nome;
 
-    private Integer idade;
+    private Date dataNascimento;
 
     private String nacionalidade;
 
@@ -33,12 +34,12 @@ public class Ator {
         this.nome = nome;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getNacionalidade() {
