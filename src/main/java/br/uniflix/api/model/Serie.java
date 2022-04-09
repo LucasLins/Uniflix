@@ -16,7 +16,7 @@ public class Serie {
     private String urlTrailer;
     private String urlCapa;
 
-    @ManyToMany
+    @OneToMany
     private List<Ator> elenco;
 
     @OneToMany

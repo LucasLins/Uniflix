@@ -17,7 +17,7 @@ public class Documentario {
 
     private String urlCapa;
 
-    @ManyToMany
+    @OneToMany
     private List<Ator> elenco;
 
     @ManyToOne

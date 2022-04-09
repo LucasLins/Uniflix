@@ -19,7 +19,7 @@ public class Filme {
 
     private String urlCapa;
 
-    @ManyToMany
+    @OneToMany
     private List<Ator> elenco;
 
     @ManyToOne

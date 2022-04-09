@@ -28,6 +28,9 @@ public class Usuario {
     @OneToOne
     private Cartao cartao;
 
+    @OneToOne
+    private Favoritos favoritos;
+
     public Integer getId() {
         return id;
     }
@@ -90,5 +93,13 @@ public class Usuario {
 
     public void setCartao(Cartao cartao) {
         this.cartao = cartao;
+    }
+
+    public Favoritos getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(Favoritos favoritos) {
+        this.favoritos = favoritos;
     }
 }
