@@ -29,6 +29,21 @@ public class SerieResource {
         return service.buscarPorId(id);
     }
 
+    @GetMapping("/genero/{genero}")
+    public List<Serie> buscarPorGenero(@PathVariable String genero) {
+        return service.listarPorGenero(genero);
+    }
+
+    @GetMapping("/nome/{nome}")
+    public List<Serie> buscarPorNome(@PathVariable String nome) {
+        return service.listarPorNome(nome);
+    }
+
+    @GetMapping("/ano/{ano}")
+    public List<Serie> buscarPorAno(@PathVariable Integer ano) {
+        return service.listarPorAno(ano);
+    }
+
     @DeleteMapping("{id}")
     public void remover(@PathVariable Integer id) {
         service.deletar(id);
