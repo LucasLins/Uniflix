@@ -2,7 +2,6 @@ package br.uniflix.api.resource;
 
 
 import br.uniflix.api.model.Documentario;
-import br.uniflix.api.model.Serie;
 import br.uniflix.api.service.DocumentarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
