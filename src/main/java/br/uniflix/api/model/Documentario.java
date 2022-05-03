@@ -17,6 +17,8 @@ public class Documentario {
 
     private String urlCapa;
 
+    private Integer anoLancamento;
+
     @OneToMany
     private List<Ator> elenco;
 
@@ -91,4 +93,9 @@ public class Documentario {
     public void setProdutora(String produtora) {
         this.produtora = produtora;
     }
+
+    public Integer getAnoLancamento() { return anoLancamento; }
+
+    public void setAnoLancamento(Integer anoLancamento) { this.anoLancamento = anoLancamento; }
+
 }
