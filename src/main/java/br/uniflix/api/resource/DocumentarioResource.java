@@ -2,6 +2,7 @@ package br.uniflix.api.resource;
 
 
 import br.uniflix.api.model.Documentario;
+import br.uniflix.api.model.Serie;
 import br.uniflix.api.service.DocumentarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,21 @@ public class DocumentarioResource {
     @GetMapping("{id}")
     public Documentario buscar(@PathVariable Integer id){
         return service.buscar(id);
+    }
+
+    @GetMapping("/genero/{genero}")
+    public List<Documentario> buscarPorGenero(@PathVariable String genero) {
+        return service.listarPorGenero(genero);
+    }
+
+    @GetMapping("/nome/{nome}")
+    public List<Documentario> buscarPorNome(@PathVariable String nome) {
+        return service.listarPorNome(nome);
+    }
+
+    @GetMapping("/ano/{ano}")
+    public List<Documentario> buscarPorAno(@PathVariable Integer ano) {
+        return service.listarPorAno(ano);
     }
 
     @DeleteMapping("{id}")

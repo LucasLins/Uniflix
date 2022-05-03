@@ -2,6 +2,7 @@ package br.uniflix.api.service;
 
 
 import br.uniflix.api.model.Documentario;
+import br.uniflix.api.model.Serie;
 import br.uniflix.api.repository.DocumentarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,16 @@ public class DocumentarioService {
 
     public Documentario buscar(Integer id) {
         return repository.findById(id).get();
+    }
+
+    public List<Documentario> listarPorGenero(String genero) {
+        return repository.findByGenero_Nome(genero);
+    }
+
+    public List<Documentario> listarPorNome(String nome) { return repository.findByNomeContainsIgnoreCase(nome); }
+
+    public List<Documentario> listarPorAno(Integer ano) {
+        return repository.findByAnoLancamento(ano);
     }
 
     public Documentario atualizar(Documentario documentario) throws Exception {
