@@ -19,6 +19,8 @@ public class Filme {
 
     private String urlCapa;
 
+    private Integer anoLancamento;
+
     @OneToMany
     private List<Ator> elenco;
 
@@ -90,5 +92,13 @@ public class Filme {
 
     public void setVideo(Video video) {
         this.video = video;
+    }
+
+    public Integer getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public void setAnoLancamento(Integer anoLancamento) {
+        this.anoLancamento = anoLancamento;
     }
 }
