@@ -40,4 +40,19 @@ public class FilmeResource {
         return service.atualizar(filme);
     }
 
+    @GetMapping("/genero/{genero}")
+    public List<Filme> buscarPorGenero(@PathVariable String genero) {
+        return service.listarPorGenero(genero);
+    }
+
+    @GetMapping("/nome/{nome}")
+    public List<Filme> buscarPorTitulo(@PathVariable String titulo) {
+        return service.listarPorNome(titulo);
+    }
+
+    @GetMapping("/ano/{ano}")
+    public List<Filme> buscarPorAno(@PathVariable Integer ano) {
+        return service.listarPorAno(ano);
+    }
+
 }

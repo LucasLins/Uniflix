@@ -35,4 +35,16 @@ public class FilmeService {
         return repository.save(filme);
     }
 
+    public List<Filme> listarPorGenero(String genero) {
+        return repository.findByGenero_Nome(genero);
+    }
+
+    public List<Filme> listarPorNome(String titulo) {
+        return repository.findByTituloContainsIgnoreCase(titulo);
+    }
+
+    public List<Filme> listarPorAno(Integer ano) {
+        return repository.findByAnoLancamento(ano);
+    }
+
 }
