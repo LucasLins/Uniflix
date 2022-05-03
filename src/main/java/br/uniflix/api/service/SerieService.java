@@ -29,6 +29,18 @@ public class SerieService {
         return repository.findById(id).get();
     }
 
+    public List<Serie> listarPorGenero(String genero) {
+        return repository.findByGenero_Nome(genero);
+    }
+
+    public List<Serie> listarPorNome(String nome) {
+        return repository.findByNomeContainsIgnoreCase(nome);
+    }
+
+    public List<Serie> listarPorAno(Integer ano) {
+        return repository.findByAnoLancamento(ano);
+    }
+
     public Serie atualizar(Serie serie) throws Exception {
         if (serie.getId() == null) {
             throw new Exception("Não é possível encontrar a série");

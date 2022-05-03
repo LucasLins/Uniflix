@@ -1,9 +1,6 @@
 package br.uniflix.api.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -14,6 +11,7 @@ public class Mensalidade {
     @GeneratedValue
     private Integer id;
 
+    @Temporal(TemporalType.DATE)
     private Date dataPagamento;
 
     private Boolean pago;

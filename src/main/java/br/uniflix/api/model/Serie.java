@@ -15,6 +15,7 @@ public class Serie {
     private Integer numeroTemporadas;
     private String urlTrailer;
     private String urlCapa;
+    private Integer anoLancamento;
 
     @OneToMany
     private List<Ator> elenco;
@@ -71,6 +72,14 @@ public class Serie {
 
     public void setUrlCapa(String urlCapa) {
         this.urlCapa = urlCapa;
+    }
+
+    public Integer getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public void setAnoLancamento(Integer anoLancamento) {
+        this.anoLancamento = anoLancamento;
     }
 
     public List<Ator> getElenco() {
