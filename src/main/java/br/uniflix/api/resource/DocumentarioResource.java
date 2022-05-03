@@ -17,7 +17,6 @@ public class DocumentarioResource {
     @Autowired
     private DocumentarioService service;
 
-
     @PostMapping
     public Documentario salvar(@RequestBody Documentario documentario){
         return service.salvar(documentario);
@@ -29,9 +28,7 @@ public class DocumentarioResource {
     }
 
     @GetMapping("{id}")
-    public Documentario buscar(@PathVariable Integer id){
-        return service.buscar(id);
-    }
+    public Documentario buscar(@PathVariable Integer id){ return service.buscarPorId(id); }
 
     @GetMapping("/genero/{genero}")
     public List<Documentario> buscarPorGenero(@PathVariable String genero) {

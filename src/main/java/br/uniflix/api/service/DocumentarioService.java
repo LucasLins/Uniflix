@@ -1,6 +1,5 @@
 package br.uniflix.api.service;
 
-
 import br.uniflix.api.model.Documentario;
 import br.uniflix.api.model.Serie;
 import br.uniflix.api.repository.DocumentarioRepository;
@@ -25,7 +24,7 @@ public class DocumentarioService {
         return repository.findAll();
     }
 
-    public Documentario buscar(Integer id) {
+    public Documentario buscarPorId(Integer id) {
         return repository.findById(id).get();
     }
 
