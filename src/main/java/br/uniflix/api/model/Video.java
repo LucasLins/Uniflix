@@ -1,57 +1,37 @@
 package br.uniflix.api.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
+@Getter
+@Setter
 @Entity
 public class Video {
 
     @Id
     @GeneratedValue
     private Integer id;
+
+    @NotEmpty
+    @Max(value = 100, message = "O título não pode ter mais que 100 caracteres")
     private String titulo;
+
+    @NotEmpty
+    @Positive
     private Integer duracao;
+
+    @NotEmpty
     private String url;
+
+    @NotEmpty
     private String thumbnail;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public Integer getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(Integer duracao) {
-        this.duracao = duracao;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
-    }
 }
