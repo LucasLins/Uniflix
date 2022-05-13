@@ -1,9 +1,18 @@
 package br.uniflix.api.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class Filme {
 
@@ -11,94 +20,32 @@ public class Filme {
     @GeneratedValue
     private Integer id;
 
+    @NotEmpty
+    @Max(value = 100, message = "O título não pode ter mais que 100 caracteres")
     private String titulo;
 
+    @NotEmpty
+    @Max(value = 1000, message = "A sinopse não pode ter mais que 1000 caracteres")
     private String sinopse;
 
     private String urlTrailer;
 
+    @NotEmpty
     private String urlCapa;
 
+    @NotEmpty
+    @Positive
     private Integer anoLancamento;
 
     @OneToMany
     private List<Ator> elenco;
 
+    @NotNull
     @ManyToOne
     private Genero genero;
 
+    @NotNull
     @OneToOne
     private Video video;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getSinopse() {
-        return sinopse;
-    }
-
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
-    }
-
-    public String getUrlTrailer() {
-        return urlTrailer;
-    }
-
-    public void setUrlTrailer(String urlTrailer) {
-        this.urlTrailer = urlTrailer;
-    }
-
-    public String getUrlCapa() {
-        return urlCapa;
-    }
-
-    public void setUrlCapa(String urlCapa) {
-        this.urlCapa = urlCapa;
-    }
-
-    public List<Ator> getElenco() {
-        return elenco;
-    }
-
-    public void setElenco(List<Ator> elenco) {
-        this.elenco = elenco;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
-
-    public Video getVideo() {
-        return video;
-    }
-
-    public void setVideo(Video video) {
-        this.video = video;
-    }
-
-    public Integer getAnoLancamento() {
-        return anoLancamento;
-    }
-
-    public void setAnoLancamento(Integer anoLancamento) {
-        this.anoLancamento = anoLancamento;
-    }
 }

@@ -1,8 +1,14 @@
 package br.uniflix.api.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Getter
+@Setter
 @Entity
 public class Mensalidade {
 
@@ -11,54 +17,19 @@ public class Mensalidade {
     @GeneratedValue
     private Integer id;
 
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;
 
+    @NotNull
     private Boolean pago;
 
+    @NotNull
     @OneToOne
     private Usuario usuario;
 
+    @NotNull
     @OneToOne
     private Plano plano;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getDataPagamento() {
-        return dataPagamento;
-    }
-
-    public void setDataPagamento(Date dataPagamento) {
-        this.dataPagamento = dataPagamento;
-    }
-
-    public Boolean getPago() {
-        return pago;
-    }
-
-    public void setPago(Boolean pago) {
-        this.pago = pago;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Plano getPlano() {
-        return plano;
-    }
-
-    public void setPlano(Plano plano) {
-        this.plano = plano;
-    }
 }

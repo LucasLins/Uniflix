@@ -1,11 +1,19 @@
 package br.uniflix.api.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@Getter
+@Setter
 @Entity
 public class Usuario {
 
@@ -13,93 +21,34 @@ public class Usuario {
     @GeneratedValue
     private Integer id;
 
+    @NotEmpty
+    @Max(value = 50, message = "O nome não pode ter mais que 50 caracteres")
     private String nome;
 
+    @NotEmpty
+    @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
+    @Email
     private String email;
 
+    @NotEmpty
+    @Max(value = 50, message = "A senha não pode ter mais que 50 caracteres")
     private String senha;
 
+    @CPF
     private String cpf;
 
+    @NotEmpty
     private String endereco;
 
+    @NotNull
     @OneToOne
     private Cartao cartao;
 
     @OneToOne
     private Favoritos favoritos;
 
-    public Integer getId() {
-        return id;
-    }
+    private Integer visualizacoes;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public Cartao getCartao() {
-        return cartao;
-    }
-
-    public void setCartao(Cartao cartao) {
-        this.cartao = cartao;
-    }
-
-    public Favoritos getFavoritos() {
-        return favoritos;
-    }
-
-    public void setFavoritos(Favoritos favoritos) {
-        this.favoritos = favoritos;
-    }
 }
