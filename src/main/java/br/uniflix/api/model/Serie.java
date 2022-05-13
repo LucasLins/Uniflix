@@ -1,8 +1,17 @@
 package br.uniflix.api.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class Serie {
 
@@ -10,10 +19,22 @@ public class Serie {
     @GeneratedValue
     private Integer id;
 
+    @NotEmpty
+    @Max(value = 100, message = "O nome da série não pode ter mais que 100 caracteres")
     private String nome;
+
+    @NotEmpty
+    @Max(value = 1000, message = "A sinopse da série não pode ter mais que 1000 caracteres")
     private String sinopse;
+
+    @NotEmpty
+    @Positive
     private Integer numeroTemporadas;
+
+
     private String urlTrailer;
+
+    @NotEmpty
     private String urlCapa;
     private Integer anoLancamento;
 
@@ -23,86 +44,8 @@ public class Serie {
     @OneToMany
     private List<Episodio> episodios;
 
+    @NotNull
     @ManyToOne
     private Genero genero;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSinopse() {
-        return sinopse;
-    }
-
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
-    }
-
-    public Integer getNumeroTemporadas() {
-        return numeroTemporadas;
-    }
-
-    public void setNumeroTemporadas(Integer numeroTemporadas) {
-        this.numeroTemporadas = numeroTemporadas;
-    }
-
-    public String getUrlTrailer() {
-        return urlTrailer;
-    }
-
-    public void setUrlTrailer(String urlTrailer) {
-        this.urlTrailer = urlTrailer;
-    }
-
-    public String getUrlCapa() {
-        return urlCapa;
-    }
-
-    public void setUrlCapa(String urlCapa) {
-        this.urlCapa = urlCapa;
-    }
-
-    public Integer getAnoLancamento() {
-        return anoLancamento;
-    }
-
-    public void setAnoLancamento(Integer anoLancamento) {
-        this.anoLancamento = anoLancamento;
-    }
-
-    public List<Ator> getElenco() {
-        return elenco;
-    }
-
-    public void setElenco(List<Ator> elenco) {
-        this.elenco = elenco;
-    }
-
-    public List<Episodio> getEpisodios() {
-        return episodios;
-    }
-
-    public void setEpisodios(List<Episodio> episodios) {
-        this.episodios = episodios;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
 }

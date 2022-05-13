@@ -1,9 +1,19 @@
 package br.uniflix.api.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.Currency;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
+@Getter
+@Setter
 @Entity
 public class Plano {
 
@@ -12,44 +22,19 @@ public class Plano {
     @GeneratedValue
     private Integer id;
 
+    @NotEmpty
+    @Max(value = 50, message = "O nome deve ter no máximo 50 caracteres")
     private String nome;
 
+    @NotNull
+    @Positive
     private Float valor;
 
+    @NotEmpty
+    @Max(value = 100, message = "A descrição deve ter no máximo 100 caracteres")
     private String descricao;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Float getValor() {
-        return valor;
-    }
-
-    public void setValor(Float valor) {
-        this.valor = valor;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-
+    @NotEmpty
+    private Integer maxVideos;
 
 }
