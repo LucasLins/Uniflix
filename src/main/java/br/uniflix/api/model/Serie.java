@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Getter
@@ -20,14 +17,13 @@ public class Serie {
     private Integer id;
 
     @NotEmpty
-    @Max(value = 100, message = "O nome da série não pode ter mais que 100 caracteres")
+    @Size(max = 100, message = "O nome da série não pode ter mais que 100 caracteres")
     private String nome;
 
     @NotEmpty
-    @Max(value = 1000, message = "A sinopse da série não pode ter mais que 1000 caracteres")
+    @Size(max = 1000, message = "A sinopse da série não pode ter mais que 1000 caracteres")
     private String sinopse;
 
-    @NotEmpty
     @Positive
     private Integer numeroTemporadas;
 
@@ -36,16 +32,16 @@ public class Serie {
 
     @NotEmpty
     private String urlCapa;
+
     private Integer anoLancamento;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Ator> elenco;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Episodio> episodios;
 
-    @NotNull
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Genero genero;
 
 }

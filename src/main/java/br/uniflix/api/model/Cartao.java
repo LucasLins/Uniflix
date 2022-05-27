@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -24,7 +25,7 @@ public class Cartao {
     private String numero;
 
     @NotEmpty
-    @Max(value = 50, message = "O nome não pode ter mais que 50 caracteres")
+    @Size(max = 50, message = "O nome do titular não pode ter mais de 50 caracteres")
     private String portador;
 
     @NotEmpty

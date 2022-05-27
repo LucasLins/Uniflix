@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioResource {
@@ -30,6 +33,11 @@ public class UsuarioResource {
     @GetMapping("{id}")
     public Usuario buscar(@PathVariable Integer id){
         return service.buscar(id);
+    }
+
+    @GetMapping("/autenticar/{email}/{senha}")
+    public Usuario buscarPorEmailESenha(@PathVariable String email, @PathVariable String senha) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        return service.buscarPorEmailESenha(email, senha);
     }
 
     @DeleteMapping("{id}")

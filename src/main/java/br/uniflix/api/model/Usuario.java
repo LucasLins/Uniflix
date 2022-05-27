@@ -6,10 +6,10 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 @Getter
@@ -22,10 +22,9 @@ public class Usuario {
     private Integer id;
 
     @NotEmpty
-    @Max(value = 50, message = "O nome não pode ter mais que 50 caracteres")
+    @Size(max = 50, message = "O nome não pode ter mais que 50 caracteres")
     private String nome;
 
-    @NotEmpty
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
@@ -33,7 +32,6 @@ public class Usuario {
     private String email;
 
     @NotEmpty
-    @Max(value = 50, message = "A senha não pode ter mais que 50 caracteres")
     private String senha;
 
     @CPF
@@ -42,13 +40,27 @@ public class Usuario {
     @NotEmpty
     private String endereco;
 
-    @NotNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Cartao cartao;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Favoritos favoritos;
 
     private Integer visualizacoes;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Mensalidade mensalidade;
+
+    public void setSenha(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+        byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
+
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : messageDigest) {
+            hexString.append(String.format("%02X", 0xFF & b));
+        }
+        String senhahex = hexString.toString();
+        this.senha = senhahex;
+    }
 
 }

@@ -45,7 +45,7 @@ public class FilmeResource {
         return service.listarPorGenero(genero);
     }
 
-    @GetMapping("/nome/{nome}")
+    @GetMapping("/nome/{titulo}")
     public List<Filme> buscarPorTitulo(@PathVariable String titulo) {
         return service.listarPorNome(titulo);
     }
