@@ -17,18 +17,11 @@ public class Mensalidade {
     @GeneratedValue
     private Integer id;
 
-    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;
 
-    @NotNull
     private Boolean pago;
 
-    @NotNull
-    @OneToOne
-    private Usuario usuario;
-
-    @NotNull
     @OneToOne
     private Plano plano;
 

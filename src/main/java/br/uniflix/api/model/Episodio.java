@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 
 @Getter
 @Setter
@@ -18,20 +15,17 @@ public class Episodio {
     @GeneratedValue
     private Integer id;
 
-    @NotEmpty
     @Positive
-    private Integer numero;
+    private Integer numeroTemporada;
 
     @NotEmpty
-    @Max(value = 100, message = "O nome não pode ter mais que 100 caracteres")
+    @Size(max = 100, message = "O nome não pode ter mais que 100 caracteres")
     private String nome;
 
-    @NotNull
     @ManyToOne
     private Serie idSerie;
 
-    @NotNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Video video;
 
 }

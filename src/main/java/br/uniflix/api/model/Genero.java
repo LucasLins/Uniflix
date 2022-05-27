@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -20,11 +21,11 @@ public class Genero {
     private Integer id;
 
     @NotEmpty
-    @Max(value = 50, message = "O nome do gênero não pode ter mais que 50 caracteres")
+    @Size(max = 50, message = "O nome do gênero não pode ter mais que 50 caracteres")
     private String nome;
 
     @NotEmpty
-    @Max(value = 200, message = "A descrição do gênero não pode ter mais que 200 caracteres")
+    @Size(max = 200, message = "A descrição do gênero não pode ter mais que 200 caracteres")
     private String descricao;
 
 }
