@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/serie")
+@RequestMapping("/api/serie")
 public class SerieResource {
 
     @Autowired

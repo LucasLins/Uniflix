@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cartao")
+@RequestMapping("/api/cartao")
 public class CartaoResource {
 
     @Autowired

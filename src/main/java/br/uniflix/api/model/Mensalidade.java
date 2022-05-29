@@ -22,7 +22,7 @@ public class Mensalidade {
 
     private Boolean pago;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     private Plano plano;
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/documentario")
+@RequestMapping("/api/documentario")
 public class DocumentarioResource {
 
     @Autowired

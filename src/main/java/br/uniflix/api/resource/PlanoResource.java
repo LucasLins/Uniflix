@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/plano")
+@RequestMapping("/api/plano")
 public class PlanoResource {
 
     @Autowired

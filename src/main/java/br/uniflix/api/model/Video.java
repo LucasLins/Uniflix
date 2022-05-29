@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 @Getter
 @Setter
 @Entity
-public class Video {
+public class    Video {
 
     @Id
     @GeneratedValue
