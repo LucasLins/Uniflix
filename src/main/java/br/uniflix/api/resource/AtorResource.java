@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ator")
+@RequestMapping("/api/ator")
 public class AtorResource {
 
     @Autowired
