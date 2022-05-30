@@ -21,6 +21,8 @@ public class Documentario {
     @Size(max = 100, message = "O título não pode ter mais de 100 caracteres")
     private String titulo;
 
+    private String sinopse;
+
     private String urlTrailer;
 
     @NotEmpty
@@ -35,11 +37,11 @@ public class Documentario {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Genero genero;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Video video;
-
     @NotEmpty
     @Size(max = 100, message = "A produtora não pode ter mais de 100 caracteres")
     private String produtora;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Video video;
 
 }
