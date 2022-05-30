@@ -4,6 +4,8 @@ package br.uniflix.api.resource;
 import br.uniflix.api.model.Usuario;
 import br.uniflix.api.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,7 @@ public class UsuarioResource {
 
 
     @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
     public Usuario salvar(@RequestBody Usuario usuario){
         return service.salvar(usuario);
     }

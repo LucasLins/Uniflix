@@ -22,9 +22,6 @@ public class Episodio {
     @Size(max = 100, message = "O nome não pode ter mais que 100 caracteres")
     private String nome;
 
-    @ManyToOne
-    private Serie idSerie;
-
     @OneToOne(cascade = CascadeType.PERSIST)
     private Video video;
 

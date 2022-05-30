@@ -1,7 +1,7 @@
 # Uniflix
 
 ### Sobre:
-Uniflix é uma aplicação de streaming de vídeos desenvolvido em `Java` utilizando o framework `Spring Boot` como parte do projeto da disciplina **Tecnologias WEB**.
+Uniflix é uma aplicação de streaming de vídeos desenvolvido em `Java` utilizando o framework `Spring Boot` para o back-end e `Angular` para o front-end, como parte do projeto da disciplina **Tecnologias WEB**.
 
 ### Denvolvedores:
 - [**Lucas de Sousa Lins**](https://github.com/LucasLins/)
@@ -14,3 +14,8 @@ Uniflix é uma aplicação de streaming de vídeos desenvolvido em `Java` utiliz
 - **Avaliações**: O usuário pode avaliar vídeos.
 - **Planos**: O usuário pode escolher um plano de assinatura.
 - **Favoritos**: O usuário pode adicionar Filmes, Séries e Documentários aos favoritos.
+
+### Screenshots:
+![](https://cdn.discordapp.com/attachments/876298824082153517/980655503283748894/unknown.png)
+![](https://cdn.discordapp.com/attachments/876298824082153517/980655727163093033/unknown.png)
+![](https://cdn.discordapp.com/attachments/876298824082153517/980659866437845012/unknown.png)
