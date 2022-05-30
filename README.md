@@ -1,4 +1,4 @@
-# Uniflix
+# ![](https://fontmeme.com/permalink/220528/3a7868ffa91b75bfb8fee37b23685c40.png)
 
 ### Sobre:
 Uniflix é uma aplicação de streaming de vídeos desenvolvido em `Java` utilizando o framework `Spring Boot` para o back-end e `Angular` para o front-end, como parte do projeto da disciplina **Tecnologias WEB**.
