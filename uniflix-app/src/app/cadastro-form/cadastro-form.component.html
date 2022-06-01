@@ -1,0 +1,171 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="column">
+      <mat-card>
+        <mat-card-subtitle>Dados do usuário</mat-card-subtitle>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input
+              matInput
+              #input
+              maxlength="50"
+              formControlName="nome"
+              required
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Data de Nascimento</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="dataNascimento"
+              required
+            />
+            <mat-hint>MM/DD/AAAA</mat-hint>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="pat@exemplo.com"
+              formControlName="email"
+              required
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="senha"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" required />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Endereço</mat-label>
+            <input matInput formControlName="endereco" required />
+          </mat-form-field>
+        </p>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onSubmit()">
+            Cadastrar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="column">
+      <mat-card>
+        <mat-card-subtitle>Dados de pagamento</mat-card-subtitle>
+
+        <div formGroupName="cartao">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Número do cartão</mat-label>
+              <input matInput formControlName="numero" required />
+            </mat-form-field>
+          </p>
+        </div>
+
+        <div formGroupName="cartao">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Nome do Portador</mat-label>
+              <input matInput formControlName="portador" required />
+            </mat-form-field>
+          </p>
+        </div>
+
+        <div formGroupName="cartao">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Validade</mat-label>
+              <input
+                matInput
+                placeholder="Ex. 03/2027"
+                formControlName="validade"
+                required
+              />
+            </mat-form-field>
+          </p>
+        </div>
+
+        <div formGroupName="cartao">
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>CVV</mat-label>
+              <input matInput formControlName="cvv" required />
+            </mat-form-field>
+          </p>
+        </div>
+
+        <div formGroupName="mensalidade">
+          <div formGroupName="plano">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Selecionar Plano</mat-label>
+                <mat-select required formControlName="id">
+                  <mat-option value="1">Básico</mat-option>
+                  <mat-option value="2">Médio</mat-option>
+                  <mat-option value="3">Premium</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="column">
+      <mat-card>
+        <mat-card-subtitle>Planos</mat-card-subtitle>
+        <p>Básico</p>
+        <li>Permite o usuário assistir apenas 1 vídeo por dia.</li>
+        <li>Valor: R$ 9,99</li>
+        <br />
+
+        <p>Médio</p>
+        <li>Permite o usuário assistir 3 vídeos por dia.</li>
+        <li>Valor: R$ 19,99</li>
+        <br />
+
+        <p>Premium</p>
+        <li>Permite o usuário assistir quantos vídeos desejar por dia.</li>
+        <li>Valor: R$ 39,99</li>
+      </mat-card>
+    </div>
+  </div>
+</form>

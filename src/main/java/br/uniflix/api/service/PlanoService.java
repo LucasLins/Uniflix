@@ -1,7 +1,6 @@
 package br.uniflix.api.service;
 
 import br.uniflix.api.model.Plano;
-import br.uniflix.api.model.Usuario;
 import br.uniflix.api.repository.PlanoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

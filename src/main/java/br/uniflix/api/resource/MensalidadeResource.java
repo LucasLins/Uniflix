@@ -2,7 +2,6 @@ package br.uniflix.api.resource;
 
 import br.uniflix.api.model.Mensalidade;
 import br.uniflix.api.service.MensalidadeService;
-import br.uniflix.api.service.PlanoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
