@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

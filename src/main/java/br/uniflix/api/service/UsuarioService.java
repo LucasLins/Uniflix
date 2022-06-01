@@ -1,11 +1,9 @@
 package br.uniflix.api.service;
 
 import br.uniflix.api.model.Usuario;
-import br.uniflix.api.repository.FilmeRepository;
 import br.uniflix.api.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

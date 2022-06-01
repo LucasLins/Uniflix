@@ -1,0 +1,14 @@
+<h1 mat-dialog-title style="color: rgb(255, 110, 110)">Vídeo</h1>
+<div mat-dialog-content>
+  
+
+  <youtube-player
+    videoId="{{ data.url }}"
+    suggestedQuality="highres"
+  >
+  </youtube-player>
+</div>
+
+<div mat-dialog-actions align="center">
+  <button mat-raised-button mat-dialog-close>Fechar</button>
+</div>

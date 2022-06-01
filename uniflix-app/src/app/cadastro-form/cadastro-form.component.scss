@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+}
+
+.column {
+  padding: 10px;
+  height: 500px;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
